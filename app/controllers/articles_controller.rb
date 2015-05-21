@@ -4,9 +4,7 @@ class ArticlesController < ApplicationController
 
  	def index
     @articles = Article.all
-    @articles.each do |art|
-      art.text=current_user
-    end 
+
   end
 
 	def new
