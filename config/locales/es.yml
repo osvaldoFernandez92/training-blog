@@ -1,0 +1,21 @@
+es:
+  hello_world: Hola Mundo
+  hello_flash: Hola Flash
+  hello_rails: Hola Rails
+  my_blog: Mi Blog
+  login: Iniciar sesión
+  logout: Cerrar sesión
+  editing_art: Editar Artículo
+  back: Atrás
+  listing_art: Listar Artículos
+  new_art: Nuevo Artículo
+  show: Mostrar
+  edit: Editar
+  destroy: Eliminar
+  title: Título
+  text: Texto
+  u_sure: ¿Está seguro?
+  comments: Comentarios
+  add_comment: Añadir un comentario
+  commenter: Autor
+  comment: Comentario
