@@ -21,3 +21,25 @@
 
 en:
   hello: "Hello world"
+  hello_world: Hello world
+  hello_flash: Hello flash
+  hello_rails: Hello Rails
+  my_blog: My Blog
+  login: Login
+  logout: Logout 
+  editing_art: Editing Article
+  back: Back
+  listing_art: Listing Articles
+  new_art: New Article
+  show: Show
+  edit: Edit
+  destroy: Destroy 
+  title: Title
+  text: Text
+  u_sure: Are you sure?
+  comments: Comments
+  add_comment: Add a comment
+  commenter: Commenter
+  comment: Comment
+
+
