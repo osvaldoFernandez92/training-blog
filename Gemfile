@@ -15,6 +15,19 @@ gem "twitter-bootstrap-rails"
 
 gem 'devise'
 gem 'rubocop'
+gem 'rb-readline'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rspec'
+  # gem 'pry'
+  # gem 'byebug'
+  # gem 'pry-byebug'
+  # gem 'pry-nav'
+  # gem 'pry-stack_explorer'
+  # gem 'pry-rails'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
