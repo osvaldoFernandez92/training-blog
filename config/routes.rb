@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
  # scope "/:locale" do
-  devise_for :users
+  devise_for :users 
   resources :articles do
-    resources :comments
+  resources :comments
+  
   end
  # end
   
@@ -15,7 +16,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 #  get '/:locale' => 'welcome#index' #ESTA PARA LA HOMEPAGE!
 
+  get :send_last_articles, to: 'articles#send_last_articles', as: :send_last_articles
+  get :send_last_users_articles, to: 'articles#send_last_users_articles', as: :send_last_users_articles
+
+
   root 'welcome#index'
+
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

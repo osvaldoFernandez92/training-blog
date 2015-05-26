@@ -5,11 +5,19 @@ table
   tr
     th =t(:title)
     th =t(:text)
+    th ="Author"
     th colspan="3" 
   - @articles.each do |article|
     tr
       td= article.title
       td= article.text
+      td= article.user.email
       td= link_to t(:show), article_path(article)
       td= link_to t(:edit), edit_article_path(article)
-      td= link_to t(:destroy), article_path(article), :method => :delete, :data => {:confirm => t(:u_sure)}  
+      td= link_to t(:destroy), article_path(article), :method => :delete, :data => {:confirm => t(:u_sure)}
+= link_to "Enviar Mail", send_last_articles_path 
+p
+= link_to "Enviar 10 de 5 ultimos usuarios", send_last_users_articles_path, remote: true
+p
+#task-form style="display:none;" 
+p
