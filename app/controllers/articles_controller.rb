@@ -42,6 +42,12 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+  def send_last_articles
+    ArticleMailer.email_name(current_user).deliver
+    flash[:notice] = "Articles have been sent."
+    redirect_to root_path
+  end
+
   private
 
   def article_params

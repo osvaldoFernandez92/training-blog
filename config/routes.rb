@@ -15,7 +15,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 #  get '/:locale' => 'welcome#index' #ESTA PARA LA HOMEPAGE!
 
+  get :send_last_articles, to: 'articles#send_last_articles', as: :send_last_articles
+
+
   root 'welcome#index'
+
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

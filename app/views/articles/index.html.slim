@@ -12,4 +12,5 @@ table
       td= article.text
       td= link_to t(:show), article_path(article)
       td= link_to t(:edit), edit_article_path(article)
-      td= link_to t(:destroy), article_path(article), :method => :delete, :data => {:confirm => t(:u_sure)}  
+      td= link_to t(:destroy), article_path(article), :method => :delete, :data => {:confirm => t(:u_sure)}
+= link_to "Enviar Mail", send_last_articles_path 
