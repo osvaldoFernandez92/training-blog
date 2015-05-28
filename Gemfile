@@ -9,9 +9,12 @@ gem 'pg'
 gem 'sqlite3'
 gem 'slim'
 
-gem "therubyracer"
+
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+
+gem 'devise'
+gem 'rubocop'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
