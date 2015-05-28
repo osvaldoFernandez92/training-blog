@@ -1,20 +1,29 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
- # scope "/:locale" do
- 
   devise_for :users
   resources :articles do
-    resources :comments
+    collection do
+      get :send_last, to: 'articles#send_last_articles', as: :send_last
+      get :send_last_users, to: 'articles#send_last_users_articles', as: :send_last_users
+    end
+  resources :comments
   end
  # end
-  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  #  get '/:locale' => 'welcome#index' #ESTA PARA LA HOMEPAGE!
+
+
+
+
   root 'welcome#index'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

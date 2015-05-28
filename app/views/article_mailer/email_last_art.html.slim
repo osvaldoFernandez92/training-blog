@@ -1,0 +1,13 @@
+h1 ="Here's what you missed"
+
+table
+  tr
+    th =t(:title)
+    th =t(:text)
+    th ="Created at"
+  - @articles.each do |article|
+    tr
+      td= article.title
+      td= article.text
+      td= article.created_at
+      td= article.user.email
