@@ -30,6 +30,7 @@ html lang="en"
   body
     .navbar.navbar-default.navbar-static-top
       .container
+
         button.navbar-toggle data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button" 
           span.icon-bar
           span.icon-bar
@@ -45,8 +46,17 @@ html lang="en"
           = yield
         .col-lg-3
 
- 
- 
+        /! /span
+      /! /row
       footer
-        p © Company 2015
- 
+
+    
+
+        p © Wolox 2015
+
+
+        - if user_signed_in?
+          =link_to 'Logout', destroy_user_session_path, :method => :delete
+        - else
+          =link_to 'Login',new_user_session_path
+    /! /container
