@@ -13,7 +13,6 @@ RSpec.describe Article, type: :model do
   describe 'destroy' do
     let(:article) { FactoryGirl.create(:article) }
     let(:comment) { FactoryGirl.create(:comment) }
-
     context 'when it has a comment associated' do
       before do
         article.comments << comment

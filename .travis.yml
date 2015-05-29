@@ -1,0 +1,29 @@
+language: ruby
+rvm:
+  - 2.2.2
+
+addons:
+    code_climate:
+        repo_token: dc367b4248ebfa0e23f04ba3794c97fddca818bc3e9af3a0c48cf55a65bd6552
+
+env:
+  global:
+    - CODECLIMATE_REPO_TOKEN=dc367b4248ebfa0e23f04ba3794c97fddca818bc3e9af3a0c48cf55a65bd6552
+
+services:
+  - postgresql
+  - redis-server
+
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c "CREATE USER blogger WITH PASSWORD 'blogger';" -U postgres
+  - psql -c "DROP DATABASE IF EXISTS blog_test;" -U postgres
+  - psql -c "CREATE DATABASE blog_test ENCODING 'utf8';" -U postgres
+  - bundle exec rake db:migrate test:prepare
+
+script:
+  - bundle exec rspec
+  - bundle exec rubocop app spec
+
+cache:
+  bundler: true
