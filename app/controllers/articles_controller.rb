@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
 
   def update
     article
+    authorize @article
     if @article.update(article_params)
       redirect_to @article
     else

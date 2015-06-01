@@ -1,19 +1,20 @@
 p
-  strong =t(:title) 
-  |: 
-  = @article.title 
+  strong =t(:title)
+  |:
+  = @article.title
 p
-  strong =t(:text) 
-  |: 
+  strong =t(:text)
+  |:
   = @article.text
 p
-  strong ="Author" 
-  |: 
+  strong ="Author"
+  |:
   = @article.user.email
 h2 =t(:comments)
 = render @article.comments
 h2 =t(:add_comment)
 = render 'comments/form'
-= link_to t(:edit), edit_article_path(@article)
-| \
+-if policy(@article).update?
+  = link_to t(:edit), edit_article_path(@article)
+  | \
 = link_to t(:back), articles_path
