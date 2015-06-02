@@ -6,7 +6,7 @@ gem 'rails', '4.2.1'
 
 gem 'pg'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3' HEROKU DOES NOT SUPPORT THIS
 gem 'slim'
 
 
@@ -28,6 +28,8 @@ gem 'pundit'
 gem 'omniauth-google-oauth2'
 
 gem 'omniauth-facebook'
+
+gem 'versionist'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

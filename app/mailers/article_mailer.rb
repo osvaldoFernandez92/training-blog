@@ -4,7 +4,7 @@ class ArticleMailer < ActionMailer::Base
     @articles = total_articles
     mail subject: "Here's what you missed!",
          to:       user_email,
-         from:     Rails.application.secrets.credentials_user
+         from:     set_sender
   end
 
   # q means "quantity" (q_articles_per_user)
@@ -13,6 +13,14 @@ class ArticleMailer < ActionMailer::Base
     @articles_per_user = q_articles_per_user
     mail subject:  "Check who's new @ the blog!",
          to:       user_email,
-         from:     Rails.application.secrets.credentials_user
+         from:     set_sender
+  end
+
+  def set_sender
+    if Rails.env.development?
+      Rails.application.secrets.credentials_user
+    elsif Rails.env.production?
+      ENV['credentials_user']
+    end
   end
 end
