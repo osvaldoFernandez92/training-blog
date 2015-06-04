@@ -1,6 +1,15 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+    config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 25, # ports 587 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => ENV['credentials_user'],
+    :password  => ENV['credentials_password'], # SMTP password is any valid API key
+    :authentication => 'login', # Mandrill supports 'plain' or 'login'
+    :domain => ENV['credentials_domain'], # your domain to identify your server when connecting
+  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -76,5 +85,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  #config.action_mailer.default_url_options = { :host => 'http://myapp.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'osvaldo-blog.herokuapp.com' }
 end
