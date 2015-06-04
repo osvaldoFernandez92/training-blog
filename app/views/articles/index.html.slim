@@ -1,3 +1,4 @@
+
 h1 =t(:listing_art)
 
 = link_to t(:new_art), new_article_path
@@ -5,11 +6,19 @@ table
   tr
     th =t(:title)
     th =t(:text)
-    th colspan="3" 
+    th ="Author"
+    th colspan="3"
   - @articles.each do |article|
     tr
       td= article.title
       td= article.text
+      td= article.user.email
       td= link_to t(:show), article_path(article)
       td= link_to t(:edit), edit_article_path(article)
-      td= link_to t(:destroy), article_path(article), :method => :delete, :data => {:confirm => t(:u_sure)}  
+      td= link_to t(:destroy), article_path(article), :method => :delete, :data => {:confirm => t(:u_sure)}
+= link_to "Enviar Mail", send_last_articles_path
+p
+= button_tag "Enviar 10 de ultimos 5", :id => 'send_last_users', remote: true
+p
+div id="processing-message"
+p

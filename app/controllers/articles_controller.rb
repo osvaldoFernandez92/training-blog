@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
-	def article
+  def article
     @article ||= Article.find(params[:id])
   end
 
@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user = current_user
     if @article.save
       redirect_to @article
     else
@@ -44,6 +45,18 @@ class ArticlesController < ApplicationController
     article
     @article.destroy
     redirect_to articles_path
+  end
+
+  def send_last_articles
+    @articles = Article.last_created(10)
+    ArticleMailer.email_last_art(current_user.email, @articles).deliver!
+    flash[:notice] = 'Articles have been sent.'
+    redirect_to root_path
+  end
+
+  def send_last_users_articles
+    HardWorker.perform_async(current_user.email, 5, 10)
+    render nothing: true
   end
 
   private

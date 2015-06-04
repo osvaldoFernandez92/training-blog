@@ -6,6 +6,10 @@ p
   strong =t(:text) 
   |: 
   = @article.text
+p
+  strong ="Author" 
+  |: 
+  = @article.user.email
 h2 =t(:comments)
 = render @article.comments
 h2 =t(:add_comment)

@@ -15,3 +15,18 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+  $("#send_last_users").click(function(){
+    $("#processing-message").html("We are processing your request");
+    $.ajax({
+      url: "articles/send_last_users",
+      method: "GET",
+      success: (function(a, b, c){
+        $("#processing-message").html("The email has been sent");
+      }),
+      error: (function(a, b, c){
+        $("#processing-message").html("There has been an error");
+      })
+    });
+  });
+});
