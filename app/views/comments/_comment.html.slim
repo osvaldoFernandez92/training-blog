@@ -1,12 +1,13 @@
 p
   strong =t(:commenter)
-  |: 
+  |:
   = comment.commenter
 p
   strong =t(:comment)
-  |: 
+  |:
   = comment.body
-                    
 
 
-p= link_to t(:destroy), [comment.article, comment], :method => :delete, :data => {:confirm => t(:u_sure)}  
+-if policy(comment).destroy?
+  p= link_to t(:destroy), [comment.article, comment], :method => :delete, :data => {:confirm => t(:u_sure)}
+

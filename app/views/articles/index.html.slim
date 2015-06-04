@@ -14,8 +14,11 @@ table
       td= article.text
       td= article.user.email
       td= link_to t(:show), article_path(article)
-      td= link_to t(:edit), edit_article_path(article)
-      td= link_to t(:destroy), article_path(article), :method => :delete, :data => {:confirm => t(:u_sure)}
+      -if policy(article).update?
+        td= link_to t(:edit), edit_article_path(article)
+      -if policy(article).update?
+        td= link_to t(:destroy), article_path(article), :method => :delete, :data => {:confirm => t(:u_sure)}
+
 = link_to "Enviar Mail", send_last_articles_path
 p
 = button_tag "Enviar 10 de ultimos 5", :id => 'send_last_users', remote: true
