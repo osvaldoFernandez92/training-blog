@@ -25,6 +25,10 @@ gem 'codeclimate-test-reporter', group: :test, require: nil
 
 gem 'pundit'
 
+gem 'omniauth-google-oauth2'
+
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers'
