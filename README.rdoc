@@ -1,5 +1,14 @@
 == README
 
+TRAVIS CI
+{<img src="https://travis-ci.org/osvaldoFernandez92/training-blog.svg?branch=quality" alt="Build Status" />}[https://travis-ci.org/osvaldoFernandez92/training-blog]
+
+CODECLIMATE
+{<img src="https://codeclimate.com/repos/5568d4cde30ba07c3f002d04/badges/a9d63c59fe0726a99645/gpa.svg" />}[https://codeclimate.com/repos/5568d4cde30ba07c3f002d04/feed]
+
+TEST COVERAGE
+{<img src="https://codeclimate.com/repos/5568d4cde30ba07c3f002d04/badges/a9d63c59fe0726a99645/coverage.svg" />}[https://codeclimate.com/repos/5568d4cde30ba07c3f002d04/coverage]
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
